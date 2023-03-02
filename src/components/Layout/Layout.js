@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
   const { asPath } = router;
 
+  // eslint-disable-next-line no-unused-vars
   const { homepage, metadata = {} } = useSite();
 
   if (!metadata.og) {
