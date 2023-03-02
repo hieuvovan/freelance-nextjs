@@ -23,7 +23,7 @@ import {
  */
 
 export function postPathBySlug(slug) {
-  return `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${slug}`;
+  return `/posts/${slug}`;
 }
 
 /**
