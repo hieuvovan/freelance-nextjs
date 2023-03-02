@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     metadata.og = {};
   }
 
-  metadata.og.url = `${homepage}${asPath}`;
+  metadata.og.url = `${'https://freelance-nextjs-m4a1.vercel.app/'}${asPath}`;
 
   const helmetSettings = {
     defaultTitle: metadata.title,
