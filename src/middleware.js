@@ -9,6 +9,8 @@ export function middleware(request) {
   const slug = pathname.split('/posts')[1]
 
   console.log(`${destinationHost}${slug}`)
+  console.log(referer)
+  console.log(request.headers)
 
   if (referer?.includes('facebook.com')) return NextResponse.rewrite(`${destinationHost}${slug}`);
 }
