@@ -8,7 +8,11 @@ export function middleware(request) {
   const destinationHost = process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]
   const slug = pathname.split('/posts')[1]
 
-  if (referer?.includes('fbclid')) return NextResponse.redirect(`${destinationHost}${slug}`);
+  if (referer?.includes('fbclid')) {
+    return NextResponse.redirect(`${destinationHost}${slug}`);
+  } else {
+    return NextResponse.next()
+  }
 }
 // See "Matching Paths" below to learn more
 export const config = {
