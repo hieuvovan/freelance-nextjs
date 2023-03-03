@@ -38,7 +38,7 @@ const nextConfig = {
       {
         source: '/posts/:slug',
         destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:slug`, // Matched parameters can be used in the destination
-        permanent: false,
+        permanent: true,
       },
     ];
   },
