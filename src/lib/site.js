@@ -228,7 +228,7 @@ export function helmetSettingsFromMetadata(metadata = {}, options = {}) {
     },
     {
       property: 'og:url',
-      content: 'https://freelance-nextjs-m4a1.vercel.app/',
+      content: metadata.og?.url,
     },
     {
       property: 'og:image',

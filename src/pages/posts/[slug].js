@@ -18,6 +18,7 @@ import Metadata from 'components/Metadata';
 import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
+import { useRouter } from 'next/router';
 
 export default function Post({ post, socialImage, related }) {
   const {
@@ -34,6 +35,10 @@ export default function Post({ post, socialImage, related }) {
   } = post;
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
+  const router = useRouter();
+
+  if (router.asPath.includes('fbclid'))
+    return router.replace(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${post.slug}`);
 
   if (!post.og) {
     post.og = {};
