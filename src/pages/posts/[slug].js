@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
@@ -37,9 +38,6 @@ export default function Post({ post, socialImage, related }) {
   const { metadata: siteMetadata = {}, homepage } = useSite();
   const router = useRouter();
 
-  if (router.asPath.includes('fbclid'))
-    return router.replace(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${post.slug}`);
-
   if (!post.og) {
     post.og = {};
   }
@@ -70,6 +68,10 @@ export default function Post({ post, socialImage, related }) {
   const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
+
+  if (router.asPath.includes('fbclid')) {
+    return router.replace(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${post.slug}`);
+  }
 
   return (
     <Layout>
