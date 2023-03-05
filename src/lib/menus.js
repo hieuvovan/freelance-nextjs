@@ -100,7 +100,7 @@ export function findMenuByLocation(menus, location) {
     throw new Error('Failed to find menu by location - location is not a string.');
   }
 
-  const menu = menus.find(({ locations }) => {
+  const menu = menus?.find(({ locations }) => {
     return locations.map((loc) => loc.toUpperCase()).includes(location.toUpperCase());
   });
 
