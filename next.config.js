@@ -36,7 +36,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/post/:slug',
+        source: '/posts/:slug',
         destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:slug`,
         permanent: true,
       },
