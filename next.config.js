@@ -33,6 +33,15 @@ const nextConfig = {
     WORDPRESS_MENU_LOCATION_NAVIGATION: process.env.WORDPRESS_MENU_LOCATION_NAVIGATION || 'PRIMARY',
     WORDPRESS_PLUGIN_SEO: parseEnvValue(process.env.WORDPRESS_PLUGIN_SEO, false),
   },
+  async redirects() {
+    return [
+      {
+        source: '/post/:slug',
+        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:slug`,
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = () => {

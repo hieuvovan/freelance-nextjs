@@ -42,6 +42,8 @@ export default function Post({ post, socialImage, related }) {
     post.og = {};
   }
 
+  console.log('metadata', siteMetadata);
+
   post.og.imageUrl = `${homepage}${socialImage}`;
   post.og.imageSecureUrl = post.og.imageUrl;
   post.og.imageWidth = 2000;
