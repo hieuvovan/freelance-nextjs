@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
@@ -19,7 +18,6 @@ import Metadata from 'components/Metadata';
 import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
-import { useRouter } from 'next/router';
 
 export default function Post({ post, socialImage, related }) {
   const {
@@ -36,7 +34,6 @@ export default function Post({ post, socialImage, related }) {
   } = post;
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
-  const router = useRouter();
 
   if (!post.og) {
     post.og = {};
@@ -54,6 +51,10 @@ export default function Post({ post, socialImage, related }) {
       ...post,
       title: metaTitle,
       description: description || post.og?.description || `Read more about ${title}`,
+      og: {
+        ...siteMetadata.og,
+        url: 'https://freelance-nextjs-m4a1.vercel.app/',
+      },
     },
   });
 
@@ -70,10 +71,6 @@ export default function Post({ post, socialImage, related }) {
   const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
-
-  if (router.asPath.includes('fbclid')) {
-    return router.replace(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${post.slug}`);
-  }
 
   console.log('meta', siteMetadata);
 
