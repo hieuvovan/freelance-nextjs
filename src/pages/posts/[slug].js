@@ -75,6 +75,8 @@ export default function Post({ post, socialImage, related }) {
     return router.replace(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${post.slug}`);
   }
 
+  console.log('meta', siteMetadata);
+
   return (
     <Layout>
       <Helmet {...helmetSettings} />
