@@ -51,10 +51,6 @@ export default function Post({ post, socialImage, related }) {
       ...post,
       title: metaTitle,
       description: description || post.og?.description || `Read more about ${title}`,
-      og: {
-        ...siteMetadata.og,
-        url: 'https://freelance-nextjs-m4a1.vercel.app/',
-      },
     },
   });
 
@@ -70,9 +66,13 @@ export default function Post({ post, socialImage, related }) {
 
   const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
 
-  const helmetSettings = helmetSettingsFromMetadata(metadata);
-
-  console.log('meta', siteMetadata);
+  const helmetSettings = helmetSettingsFromMetadata({
+    ...metadata,
+    og: {
+      ...siteMetadata.og,
+      url: 'https://freelance-nextjs-m4a1.vercel.app/',
+    },
+  });
 
   return (
     <Layout>
