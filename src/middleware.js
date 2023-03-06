@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const search = req.nextUrl.search || 'fbclid';
+  const search = req.nextUrl.search || '';
   const pathname = req.nextUrl.pathname || '';
   const slug = pathname.split('/posts').pop();
 
