@@ -1,17 +1,11 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const search = req.nextUrl.search || '';
+  const search = req.nextUrl.search || 'fbclid';
   const pathname = req.nextUrl.pathname || '';
   const slug = pathname.split('/posts').pop();
 
-  if (!search.includes('fbclid') && pathname.includes('posts')) {
-    if (search) {
-      return NextResponse.redirect(`${req.nextUrl.href}&&fbclid=1`);
-    } else {
-      return NextResponse.redirect(`${req.nextUrl.href}?fbclid=1`);
-    }
-  } else if (search.includes('fbclid') && pathname.includes('posts')) {
+  if (search.includes('fbclid') && pathname.includes('posts')) {
     return NextResponse.redirect(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${slug}`);
   }
 
