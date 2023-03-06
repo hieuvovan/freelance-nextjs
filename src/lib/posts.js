@@ -23,7 +23,7 @@ import {
  */
 
 export function postPathBySlug(slug) {
-  return `/posts/${slug}`;
+  return `/posts/${slug}?admin=1`;
 }
 
 /**
