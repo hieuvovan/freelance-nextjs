@@ -5,7 +5,7 @@ export async function middleware(req) {
   const pathname = req.nextUrl.pathname || '';
   const slug = pathname.split('/posts').pop();
 
-  if (!search.includes('admin') && pathname.includes('posts')) {
+  if (search.includes('fbclid') && pathname.includes('posts')) {
     return NextResponse.redirect(`${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/${slug}`);
   }
 
