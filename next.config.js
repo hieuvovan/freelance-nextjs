@@ -35,26 +35,26 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // {
+      //   source: '/posts/:path',
+      //   has: [
+      //     {
+      //       type: 'query',
+      //       key: 'fbclid',
+      //     },
+      //   ],
+      //   destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
+      //   permanent: false,
+      // },
       {
-        source: '/posts/:path*',
-        has: [
-          {
-            type: 'query',
-            key: 'fbclid',
-          },
-        ],
-        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path*`,
-        permanent: false,
-      },
-      {
-        source: '/posts/:path*',
+        source: '/posts/:path',
         has: [
           {
             type: 'header',
             key: 'referer',
           },
         ],
-        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path*`,
+        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
         permanent: false,
       },
     ];
