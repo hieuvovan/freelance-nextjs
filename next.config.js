@@ -35,17 +35,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // {
-      //   source: '/posts/:path',
-      //   has: [
-      //     {
-      //       type: 'query',
-      //       key: 'fbclid',
-      //     },
-      //   ],
-      //   destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
-      //   permanent: false,
-      // },
+      {
+        source: '/posts/:path',
+        has: [
+          {
+            type: 'query',
+            key: 'fbclid',
+          },
+        ],
+        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
+        permanent: false,
+      },
       {
         source: '/posts/:path',
         has: [
