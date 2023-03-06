@@ -1,9 +1,10 @@
 {
   "redirects": [
     {
-      "source": "/posts/:path*",
-      "destination": "https://wildpaws.info/:path*",
+      "source": "/posts/:path",
+      "destination": "https://wildpaws.info/:path",
       "permanent": true
     }
-  ]
+  ],
+  "trailingSlash": false
 }
