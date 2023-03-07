@@ -46,17 +46,17 @@ const nextConfig = {
         destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
         permanent: false,
       },
-      // {
-      //   source: '/posts/:path',
-      //   has: [
-      //     {
-      //       type: 'header',
-      //       key: 'referer',
-      //     },
-      //   ],
-      //   destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
-      //   permanent: false,
-      // },
+      {
+        source: '/posts/:path',
+        has: [
+          {
+            type: 'header',
+            key: 'referer',
+          },
+        ],
+        destination: `${process.env.WORDPRESS_GRAPHQL_ENDPOINT.split('/graphql')[0]}/:path`,
+        permanent: false,
+      },
     ];
   },
 };
