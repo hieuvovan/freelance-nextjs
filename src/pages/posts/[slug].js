@@ -39,8 +39,6 @@ export default function Post({ post, socialImage, related }) {
     post.og = {};
   }
 
-  console.log('metadata', siteMetadata);
-
   post.og.imageUrl = `${homepage}${socialImage}`;
   post.og.imageSecureUrl = post.og.imageUrl;
   post.og.imageWidth = 2000;
@@ -66,13 +64,7 @@ export default function Post({ post, socialImage, related }) {
 
   const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
 
-  const helmetSettings = helmetSettingsFromMetadata({
-    ...metadata,
-    og: {
-      ...siteMetadata.og,
-      url: 'https://freelance-nextjs-m4a1.vercel.app/',
-    },
-  });
+  const helmetSettings = helmetSettingsFromMetadata(metadata);
 
   return (
     <Layout>
